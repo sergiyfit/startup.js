@@ -1,0 +1,916 @@
+@mixin media($size)
+    @media screen and (max-width:#{$size}px)
+        @content
+        
+@font-face 
+    font-family: 'Myriad Pro'
+    src: url('../font/MyriadPro-Regular.eot')
+    src: url('../font/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'), url('../font/MyriadPro-Regular.woff') format('woff'),url('../font/MyriadPro-Regular.ttf') format('truetype')
+    font-weight: normal
+    font-style: normal
+
+html
+    font-size: 1px
+    font-family: "Montserrat"
+    scroll-behavior: smooth
+
+html,body
+    scroll-behavior: smooth
+    margin: 0
+
+$primary-white-color: #fff
+$primary-red-color: #c0301c
+$primary-dark-color: #555555
+$background-gray: #f8f8f8
+
+$calendar-white-color: #f8f8f8
+$calendar-dark-color: #777777
+
+$carousel-dot-color : #dddddd
+
+$secondary-red-color-opacity: rgba(192, 48, 28, 0.5)
+
+a
+    text-decoration: none
+    &:hover
+        cursor: url("../img/icons/cursor.cur") , pointer
+ul
+    text-decoration: none
+    list-style: none
+
+button
+    cursor: pointer
+    transition: all 0.5s ease
+button:hover
+    color: $calendar-white-color
+    background-color: $primary-red-color
+    cursor: url("../img/icons/cursor.cur") , pointer
+
+@mixin adr_icon($url)
+    content: ""
+    position: absolute
+    left: 0px
+    top: 3px
+    width: 16px
+
+    background-image: url($url)
+    background-repeat: no-repeat
+    background-position: 50% 50%
+    
+
+
+.loginarea
+    position: fixed
+    display: none
+    justify-content: center
+    align-items: center
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    backdrop-filter: blur(10px)
+    z-index: 3
+
+    &-form 
+        position: relative
+        padding: 50px
+        background-color: $calendar-white-color
+        color: $primary-dark-color
+        border: solid 2px $calendar-dark-color
+        border-radius: 3px
+
+    &-header 
+        margin: 0
+        padding: 0
+        text-align: center
+        font-size: 32px
+        text-transform: uppercase
+
+    &-input         
+        display: block
+        width: 100%
+        margin: 20px 0
+        padding: 5px
+        font-size: 16px
+        box-sizing: border-box
+
+    &-norobot
+        padding: 10px
+
+        &-box
+            display: flex
+            justify-content: space-between
+            background-color: $calendar-dark-color
+            border-radius: 20px
+            border: solid 1px $primary-white-color
+
+        &-block
+            width: 42px
+            height: 22px
+            border-radius: 20px
+            
+            border: solid 1px $calendar-dark-color
+
+        &-switch
+            width: 40px
+            height: 20px
+            border-radius: 20px
+            background-color: $primary-white-color
+            border: solid 1px $calendar-dark-color
+
+
+    &-button 
+        display: block
+        width: 220px
+        margin: 20px auto
+        padding: 10px
+
+        font-size: 14px
+        text-align: center
+        text-transform: uppercase
+        border: solid 1px $calendar-dark-color
+
+        background-color: $primary-white-color
+        
+
+.header
+    color: $primary-white-color
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+    background-color: $primary-red-color
+    padding: 265rem 0
+    height: 100vh
+    box-sizing: border-box
+    background-image: url("../img/startup-hero-bg.jpg")
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: 110% auto
+
+    +media(1100)
+        background-size: cover
+
+    &-panel
+        position: fixed
+        left: 0
+        right: 0
+        top: 0
+        width: 100vw
+        padding: 40rem 0
+        z-index: 3
+        
+    &-holder
+        box-sizing: border-box
+        display: flex
+        justify-content: space-between
+
+.logo-pic
+    font-size: 24rem
+    font-weight: 700
+
+.menu 
+    display: flex
+    column-gap: 35rem
+    width: min-content
+    margin: 0
+    padding: 0
+
+    +media(720)
+        display: none
+        left: 0        
+        top: 100%
+        position: absolute
+        width: 100%
+        flex-direction: column
+
+    &-burger
+        display: none
+        position: relative        
+        width: 25px
+        height: 25px
+        border-radius: 5px
+        border: solid 1rem $primary-white-color
+
+        +media(720)
+            display: block
+
+        &::before
+           content: ""
+           position: absolute
+           left: 3px
+           top: 33%
+           width: 19px
+           height: 1px
+           border-top: 2px solid $primary-white-color
+        &::after
+           content: ""
+           position: absolute
+           left: 3px
+           top: 65%
+           width: 19px
+           height: 1px
+           border-top: 2px solid $primary-white-color
+        &-active
+            &::before
+                top: 11px
+                transform: rotate(45deg)
+            &::after
+                top: 11px
+                transform: rotate(-45deg)    
+    &-item
+        font-size: 14rem
+        letter-spacing: 0rem
+        color: $primary-white-color
+        transition: all 0.5s ease
+        +media(720)
+            display: inline-block
+            text-align: center
+            width: 100%
+            padding: 20px
+            box-sizing: border-box
+            border-top: 1px solid $primary-white-color
+            background-color: $primary-red-color
+    // &-item a
+        
+    &-item:hover
+        display: block
+        border-bottom: 2px solid $primary-white-color
+        transform: scale(1.3)
+        
+    
+
+.huge-header
+    font-size: 48rem
+    text-transform: uppercase
+    text-align: center
+    +media(420)
+        padding: 0 10rem
+        font-size: 36rem
+
+.header .middle-header
+    font-size: 20rem
+    text-align: center
+    color: $primary-white-color
+    font-weight: 400
+    font-family: "Roboto Slab"
+
+.transparent-button
+    display: block
+    margin: 20rem auto
+    padding: 18rem 36rem
+
+    color: $primary-white-color
+    background-color: transparent
+
+    border: solid 1rem $primary-white-color
+
+    text-transform: uppercase
+    font-size: 16px
+
+.big-header
+    font-size: 16px
+    color: $primary-dark-color
+    text-align: center
+    text-transform: uppercase
+
+.devide-line
+    margin: 30rem auto 
+
+    width: 50rem
+
+.middle-header
+    font-size: 16px
+    color: $primary-dark-color
+    font-weight: 400
+    font-family: "Roboto Slab"
+    text-align: center
+
+.card 
+    text-align: center
+    font-size: 14rem
+    font-weight: 400
+
+    &-container
+        +media(720)
+            flex-wrap: wrap
+
+    &-image
+        display: inline-block
+        height: 90rem
+        min-width: 90rem
+        margin-top: 60rem
+
+    &-header
+        margin: 25rem 0 
+
+        text-transform: uppercase
+        color: $primary-dark-color
+
+    &-text
+        font-family: "Roboto Slab"
+        color: $primary-dark-color
+
+.about-us
+    background-color: $background-gray
+
+    &-container
+        padding-top: 71rem
+        padding-bottom: 71rem
+        flex-wrap: wrap
+
+    &-col
+        width: 50%
+        +media(720)
+            width: 100%
+        font-size: 14rem
+        color: #555555
+        font-family: "Roboto Slab"
+
+.slider-button::before
+    content: ""
+    position: absolute
+    top: 13px
+    width: 10px    
+    height: 10px    
+    border: 2px solid $primary-white-color
+    transform: rotate(45deg) 
+            
+.slider-button
+    position: absolute
+    top: 45%
+    width: 35px
+    height: 38px
+    transform: translateY(-50%)
+    z-index: 1
+    background-color: #555
+    border: none
+    opacity: 0.2
+    transition: all 0.2s ease
+    &:hover
+        opacity: 1
+        background-color: $primary-red-color
+    &-pre
+        left: 0
+    &-pre::before
+        left: 13px
+        border-top: none
+        border-right: none
+    &-next
+        right: 0
+    &-next::before
+        right: 13px
+        border-left: none
+        border-bottom: none
+
+#slides
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+
+.slider    
+    position: relative
+    height: 250px 
+    overflow: hidden
+
+.slide
+    text-align: center
+    position: absolute
+    width: min-content
+    top: 0
+    left: 0
+    transition: all 1s ease
+
+    &-username 
+        margin: 15px auto
+        font-size: 14px
+        font-family: "Myriad Pro"
+        text-transform: uppercase
+
+    &-userskills
+        margin: auto
+        font-size: 13px
+        font-family: "Roboto Slab"
+
+.slide img
+    object-fit: cover
+    width: 100%
+
+
+#shop-menu 
+    margin-top: 0
+    margin-bottom: 60rem
+    +media(720)
+        display: block
+        position: static
+        width: 100%
+        margin-bottom: 20rem
+.shop    
+    width: 100%
+
+
+    &-card 
+        display: block
+        position: relative
+        width: calc( 100% / 3 - 20rem)
+        +media(860)
+            width: calc( 100% / 2 - 15rem)
+        +media(568)
+            width: calc( 100% )
+        overflow: hidden
+        margin: 0
+        
+        &-hoverblock
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin: 0
+            background-color: $secondary-red-color-opacity
+            text-align: center  
+            z-index: -1
+
+        &:hover > .shop-card-hoverblock
+            z-index: 1
+
+        &-container
+            column-gap: 30rem
+            row-gap: 30rem
+            flex-wrap: wrap
+
+        &-img
+            width: 100%
+            object-fit: cover
+            background-position: 50% 50%
+            
+
+        &-caption
+            color: $primary-white-color
+            font-size: 18px
+            font-weight: 400
+            font-family: "Montserrat"
+
+        &-item
+            color: $primary-white-color
+            margin-top: 16rem
+            margin-bottom: 24rem
+            font-size: 12px
+
+        &-button 
+            width: max-content
+            padding: 13rem 25rem              
+            border: none
+            color: $primary-red-color
+            background-color: $primary-white-color
+
+
+.shop a
+    color: $primary-dark-color
+    font-size: 16px
+    font-weight: 400
+    font-family: "Roboto Slab"
+    text-align: center
+
+    &:hover
+        color: #c0301c
+
+.sticker
+    color: $primary-white-color   
+
+    text-align: center
+
+    background-image: url("../img/footer-bcg.png")
+    background-size: cover
+    background-position: 50% 50%
+
+    &-red-container
+        background-color: $secondary-red-color-opacity
+        z-index: 1
+
+
+    &-header
+        font-size: 30px
+        line-height: 44px
+        font-weight: 400
+        font-family: "Roboto Slab"
+        text-align: center
+
+.blog
+    &-container
+        flex-direction: column
+
+    &-image
+        width: 460rem
+        height: 320rem
+        +media(961)
+            width: 100%
+            height: auto
+
+    &-image img
+        width: 460rem
+        height: 320rem
+        object-fit: cover
+
+        +media(961)
+            width: 100%
+            height: auto
+
+        background-size: contain
+        background-position: 50% 50%
+
+    &-post
+        padding-top: 40rem
+        padding-bottom: 40rem
+        display: flex
+        column-gap: 30rem
+        row-gap: 15rem
+        +media(961)
+            flex-direction: column
+            flex-wrap: wrap 
+        // &-content     
+
+
+        &-header 
+
+            display: flex
+            column-gap: 30rem
+            align-items: center
+
+            &-calendar
+                padding: 15px 20px
+                display: block
+
+                color: $calendar-dark-color
+                background-color: $calendar-white-color 
+                border: 2px solid $primary-dark-color
+
+                text-align: center
+                letter-spacing: 2px
+                font-weight: 700
+                font-family: "Montserrat"
+
+                &-date
+                    font-size: 24px
+
+                &-month
+                    font-size: 14px
+                    text-transform: uppercase
+
+            &-text
+                font-size: 16px
+                font-family: "Montserrat"
+
+            &-text strong
+                display: block
+                text-transform: uppercase
+                color: $primary-red-color
+                margin: 17rem 0                 
+
+            &-text em
+                font-size: 13px
+                color: #777777
+            &-text span
+                color: $primary-red-color
+
+        &-text
+            font-size: 14px
+            line-height: 24px
+            color: $primary-dark-color
+            font-weight: 400
+            font-family: "Roboto Slab"
+
+        &-reference
+            font-size: 13px
+            letter-spacing: 1px
+            text-transform: uppercase
+            color: $primary-red-color
+            font-weight: 700
+            font-family: "Roboto Slab"
+
+.brand
+    background-color: $background-gray
+    flex-direction: column
+    &-carousel
+        position: relative
+        overflow: hidden
+        padding: 0
+        margin: 0
+        display: flex
+        width: 100%
+        &-item
+            display: block
+            position: absolute
+            padding: 0
+            margin: 0
+            top: 0
+            left: 0
+            transition: all 1s ease
+            
+        &-item img
+            display: block
+            height: 100%
+            margin: auto auto
+        &-quote
+            display: none
+        &-author    
+            display: none
+        
+    &-content
+        transition: all 1s ease
+        padding: 0 20px
+        margin-bottom: 40rem
+
+        font-size: 18px
+        line-height: 30px
+
+        color: $primary-dark-color
+
+        font-weight: 400
+        font-family: "Roboto Slab"
+        text-align: center
+
+        &-author
+            transition: all 1s ease
+
+    &-content em
+        display: block
+        margin-top: 60rem
+        margin-bottom: 45rem
+
+        font-size: 24px
+        transition: all 1s ease
+    
+
+    &-navigation
+        display: flex
+        justify-content: center
+        column-gap: 6rem
+
+        &-circle
+            width: 13px
+            height: 13px
+            border-radius: 6px
+            background-color: $carousel-dot-color
+
+            &__checked
+                background-color: $primary-red-color
+
+.contact
+    &-info
+        justify-content: center
+        column-gap: 30rem
+        +media(968)
+            row-gap: 30rem
+            flex-direction: column
+            align-items: center
+    &-element 
+
+        &-holder 
+            align-items: center
+            font-size: 12px
+            line-height: 20px
+            color: $primary-dark-color
+            font-weight: 400
+            font-family: "Roboto Slab"
+            +media(968)
+                display: flex
+                column-gap: 30rem
+                justify-content: center
+                flex-wrap: wrap
+            +media(648)
+                justify-content: start
+
+
+    &-element p
+        padding-left: 30rem
+
+    &-element a
+        color: $primary-dark-color
+
+    &-reference
+        display: block
+        
+        position: relative
+
+        padding-left: 30rem
+
+        font-size: 14px
+        line-height: 30px
+        text-transform: uppercase
+        font-family: "Myriad Pro"
+        
+    &-location::before
+        +adr_icon("../img/icons/fa-map-marker.svg")
+        height: 21rem
+
+    &-phone::before
+        +adr_icon("../img/icons/fa-mobile-phone.svg")
+        height: 21rem
+
+    &-mail::before
+        +adr_icon("../img/icons/fa-envelope-o.svg")
+        height: 21rem
+
+    &-form
+        +media(762)
+            width: 100%
+
+        &-input
+            padding: 17px
+            margin: 10px 15px
+            font-size: 12px
+            text-transform: uppercase
+            color: $primary-dark-color
+            font-family: "Myriad Pro"
+            box-sizing: border-box
+            +media(762)
+                margin: 10px 0px
+                width: 100%
+
+            &-text
+                width: 350rem
+
+                +media(762)
+                    width: 100%
+
+            &-textarea
+                width: 730rem
+                resize: vertical
+                min-height: 100rem
+
+                +media(762)
+                    width: 100%
+            &:focus
+                outline: none
+                border: 2rem solid $primary-red-color        
+                
+        &-button
+            margin: 10px 15px
+            padding: 17rem 36rem
+            color: $primary-dark-color
+            font-size: 12px
+            text-transform: uppercase
+            font-family: "Myriad Pro"
+            box-sizing: border-box
+            background-color: transparent
+            +media(762)
+                margin-left: 0rem
+        &-message 
+            font-size: 12px
+            font-weight: 400
+            font-family: "Roboto Slab"
+
+        &-message strong
+            color: $primary-red-color
+
+.footer
+    background-color: $primary-red-color
+    color: $primary-white-color
+
+    &-social
+        display: block
+        width: 35px
+        height: 35px
+        border-radius: 18px
+        border: 2px solid #ffffff
+        box-sizing: border-box
+
+        background-color: #c0301c
+        background-repeat: no-repeat
+        background-position: 50% 50%
+        transition: all 0.2s ease 
+
+        &:hover
+            transform: scale(1.2) translateY(-3px)
+
+        &-container
+            justify-content: center
+            padding: 0
+            column-gap: 15rem
+        &-instagram
+            background-image: url("../img/icons/inst.svg")
+            background-position: calc(50% + 0px) 50%
+
+        &-facebook
+            background-image: url("../img/icons/fb.svg")
+
+        &-twitter
+            background-image: url("../img/icons/tw.svg")
+
+        &-gmail
+            background-image: url("../img/icons/email.svg")
+
+    &-text
+        display: block        
+        padding: 0
+        margin: 0
+        font-size: 12px
+        text-align: center
+        text-transform: uppercase
+        font-family: "Roboto Slab"
+
+    &-devide-line
+        border-color: $primary-white-color
+
+.show
+    display: flex
+    +media(720)
+        display: flex
+
+.painting
+    background-color: #c0301c
+
+.wrapper
+    display: flex
+    max-width: 1140rem
+    margin: auto
+    box-sizing: border-box
+
+    +media(720)
+        flex-wrap: wrap
+    +media(1180)
+        padding-left: 20rem
+        padding-right: 20rem
+
+.vertical-wraper
+    padding-top: 100rem
+    padding-bottom: 100rem
+
+.levelUp
+    z-index: 1
+
+.border_underline
+    border-bottom: 1rem solid $calendar-dark-color
+
+
+.close-btn    
+    position: absolute
+    display: flex
+
+    justify-content: center
+    align-items: center
+
+    top: 5px
+    right: 5px
+
+    width: 25px    
+    height: 25px
+
+    border-radius: 2px
+    background-color: $primary-red-color
+    
+
+    &-in
+        position: relative
+        display: block
+        width: 100%
+        height: 100%
+        padding: 0
+        margin: 0
+
+    &-in::before
+        content: ""
+        position: absolute
+        left: 3px
+        width: 20px
+        height: 1px
+        border-top: 2px solid $primary-white-color
+        top: 11px
+        transform: rotate(45deg)
+    &-in::after
+        content: ""
+        position: absolute
+        left: 3px
+        width: 20px
+        height: 1px
+        border-top: 2px solid $primary-white-color
+        top: 11px
+        transform: rotate(-45deg)    
+
+
+.anim
+    opacity: 1
+    transition: all 1s ease
+    
+    &-down
+        transform: translateY(-100px)
+        opacity: 0
+    &-right
+        transform: translateX(100px)
+        opacity: 0
+    &-left
+        transform: translateX(-100px)
+        opacity: 0
+
+    &-zoom
+        transform: scale(0.1)
+        opacity: 0
+    &-rotate
+        transform: rotateY(180deg)
+        opacity: 0
+
